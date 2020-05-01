@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="IdentityServer4" Version="3.1.3" />
+    <PackageReference Include="IdentityServer4.AspNetIdentity" Version="3.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameWorkCore" Version="3.1.3" />
+    <PackageReference Include="Microsoft.EntityFrameWorkCore" Version="3.1.3" />
+    <PackageReference Include="Microsoft.EntityFrameWorkCore.InMemory" Version="3.1.3" />
+
+    <PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />
+  </ItemGroup>
+</Project>
