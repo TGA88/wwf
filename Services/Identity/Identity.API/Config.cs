@@ -32,13 +32,31 @@ namespace wwf.Services.Identity.API
             new Client[]
             {  new Client{
                 ClientId="publisher-js.wwf.com",
-                ClientName="PubliherWebClient",
+                ClientName="PubliherSPAClient",
                 AllowedGrantTypes= GrantTypes.Code,
                 RequireClientSecret=false,
                 RequirePkce=true,
                 RedirectUris = { "http://localhost:5003/callback.html" },
                 PostLogoutRedirectUris = { "http://localhost:5003/index.html" },
                 AllowedCorsOrigins =     { "http://localhost:5003" },
+                AllowedScopes = {
+                                    IdentityServerConstants.StandardScopes.OpenId,
+                                    IdentityServerConstants.StandardScopes.Profile,
+                                    "organizer"
+                                    }
+                },
+                 new Client{
+                ClientId="publisher-web.wwf.com",
+                ClientName="PubliherWebClient",
+                AllowedGrantTypes= GrantTypes.Code,
+                ClientSecrets={new Secret("password".Sha256())},
+                RequirePkce=true,
+                RequireConsent=false,
+                RedirectUris = { "http://localhost:5006/sign-oidc" },
+                 PostLogoutRedirectUris = { "http://localhost:5006/signout-callback-oidc" },
+               //  PostLogoutRedirectUris = { "http://localhost:5006/TestAfterLogout" },
+               
+                AllowedCorsOrigins =     { "https://localhost:5005","http://localhost:5006" },
                 AllowedScopes = {
                                     IdentityServerConstants.StandardScopes.OpenId,
                                     IdentityServerConstants.StandardScopes.Profile,

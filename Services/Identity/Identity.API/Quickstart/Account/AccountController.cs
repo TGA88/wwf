@@ -314,6 +314,7 @@ namespace wwf.Services.Identity.API
             }
 
             return View("LoggedOut", vm);
+         //   return Redirect(vm.PostLogoutRedirectUri);
         }
 
         [HttpGet]

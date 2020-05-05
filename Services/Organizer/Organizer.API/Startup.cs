@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
+
 using wwf.Services.Organizer.API.Data;
 using Microsoft.EntityFrameworkCore;
 namespace Organizer.API
@@ -36,10 +37,10 @@ namespace Organizer.API
             services.AddOpenApiDocument();
 
             //add JwtBearer as Default Authentication
-            services.AddAuthentication()
+            services.AddAuthentication("Bearer")
             .AddJwtBearer("Bearer", option =>
             {
-                option.Authority = "https://localhost:5001";
+                option.Authority = "http://localhost:5000";
                 option.Audience = "organizer";
                 option.RequireHttpsMetadata = false;
             });
@@ -55,7 +56,7 @@ namespace Organizer.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
             app.UseOpenApi();
             app.UseSwaggerUi3();
