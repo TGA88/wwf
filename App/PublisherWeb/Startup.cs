@@ -67,6 +67,7 @@ namespace PublisherWeb
 
             //options =>{
        // options.ForwardChallenge ="oidc";}
+       
 
         }
 
